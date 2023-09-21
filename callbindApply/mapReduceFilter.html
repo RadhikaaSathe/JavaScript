@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: gray;">
+    <script>
+        let num =[1,2,3,4,5,6];
+        let newnum1= num.map((n)=>{
+                return n*2;
+        })
+        console.log(newnum1);
+        let newnum2 = num.filter((n)=>{
+            return n%2===0;
+        })
+        console.log(newnum2);
+        let newnum3= num.reduce((prev,curr)=>{
+            return prev+curr;
+        })
+        console.log(newnum3);
+    </script>
+    
+</body>
+</html>

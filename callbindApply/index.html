@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: grey;">
+    <script>
+        const User1={
+            name:"Aman",
+            lastName:"sinhg",
+
+        fullname : function(hometown,age){
+            console.log(`Hi ${this.name} ${this.lastName} you are from ${hometown} and age ${age}`);
+        }
+        };
+        const User2={
+            name:"Harsh",
+            lastName:"Tata",
+
+        
+        };
+
+        console.log(User1.fullname.call(User2,"Pune",28));
+        console.log(User1.fullname.apply(User2,["pune",28]));
+        //bind returns fun which is bind to that obj 
+        let res = User1.fullname.bind(User2,"pune",28);
+        console.log(res);
+        res();
+
+
+    </script>
+</body>
+</html>
