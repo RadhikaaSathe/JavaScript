@@ -4,14 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <h1>Practice of Promises
-    
-    </h1>
-    <p></p>
- <script src="app.js"></script>
-    
+    <script>
+        console.log("1");
+        function greet(){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    let greet=true;
+                    if(greet=true){
+                    console.log("in timeout");
+                    resolve("promise resolve");}
+                    reject("promise rejected");
+                },1000);
+
+            })
+
+        }
+        async function demo(){
+            await greet().then((res)=>{
+                console.log("save data1",res);
+            }).then((res)=>{
+                console.log("save data 2",res);
+            }).catch(console.error());
+        }
+        //demo();
+
+        function get(){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    let get=true;
+                    if(get=true){
+                        console.log("in timeout")
+                        resolve("Success")
+                    }
+                    reject("Failure")
+
+                },1000);
+
+            })
+
+        }
+
+        async function getData(){
+           await get().then((res)=>{
+            console.log("Data1 Saved")
+           }).then(()=>{
+            get().then(()=>{console.log("Data2 Saved");})
+            
+           }).catch((err)=>{
+            console.log("Error catch");
+           })
+           
+        }
+        getData();
+
+
+
+    </script>
 </body>
 </html>
